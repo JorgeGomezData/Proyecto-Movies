@@ -43,10 +43,12 @@ def peliculas_pais( Pais: str )| Se ingresa un país (como están escritos en el
 |def productoras_exitosas( Productora: str )| Se ingresa la productora, entregandote el revunue total y la cantidad de peliculas que realizo. |Ejemplo de retorno: La productora X ha tenido un revenue de x|
 def get_director( nombre_director )|Se ingresa el nombre de un director que se encuentre dentro de un dataset debiendo devolver el éxito del mismo medido a través del retorno.| Además, deberá devolver el nombre de cada película con la fecha de lanzamiento, retorno individual, costo y ganancia de la misma, en formato lista.
 
-Igualmente dentro de las funcionalidades se encuentra el sistema de recomendaciones de las películas, realizado con Machine Learning
+Igualmente dentro de las funcionalidades se encuentra el sistema de recomendaciones de las películas, realizado con Machine Learning.
+
+Se debe tener en cuenta que debido a la cantidad de memoria utilizada tanto por el modelo de recomendación de Machine Learning como por las demas funciones, para efectos prácticos se realizo una partición de los csv por cada una de las funciones. De esta manera se hace posible que la API pueda ser desplegada (deploy) en el servicio de Render.
 
 ## Acceso
-Los usuarios pueden tener acceso a la API a través del link *localhost:8000/docs* en su navegador
+Los usuarios pueden tener acceso a la API a través del link *https://modelo-recomendacion.onrender.com/docs* en su navegador
 
 ## Librerias utilizadas
 El proyecto utiliza las siguientes librearias de Python
