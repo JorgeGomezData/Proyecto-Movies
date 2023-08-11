@@ -1,6 +1,7 @@
-pandas
+Pandas
 Numpy
 scikit-learn
 scipy
 uvicorn
 fastapi
+fuzzywuzzy
