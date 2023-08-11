@@ -10,7 +10,7 @@ df_pais=pd.read_csv('Datasets/pais.csv')
 df_productoras=pd.read_csv('Datasets/productoras.csv')
 df_director=pd.read_csv('Datasets/director.csv')
 df_franquicia=pd.read_csv('Datasets/franquicia.csv')
-df_recomendacion=pd.read_csv('Datasets/recomendacion.csv')
+df_recommend=pd.read_csv('Datasets/recommend.csv')
 
 @app.get('/peliculas_idioma/{Idioma}')
 def peliculas_idioma(Idioma: str):
@@ -102,13 +102,13 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # Crear un vectorizador CountVectorizer para los títulos de las películas
 count_vectorizer = CountVectorizer(stop_words='english')
-count_matrix = count_vectorizer.fit_transform(df_recomendacion['title'])
+count_matrix = count_vectorizer.fit_transform(df_recommend['title'])
 
 # Calcular la similitud del coseno entre las películas
 cosine_sim = cosine_similarity(count_matrix, count_matrix)
 
 # Crear un diccionario que mapee los títulos de las películas con sus índices en el DataFrame
-indices = pd.Series(df_recomendacion.index, index=df_recomendacion['title']).drop_duplicates()
+indices = pd.Series(df_recommend.index, index=df_recommend['title']).drop_duplicates()
 
 
 def recomendacion(titulo):
@@ -125,7 +125,7 @@ def recomendacion(titulo):
     top_indices = [i[0] for i in sim_scores[1:6]]
 
     # Obtener los títulos de las 5 películas más similares
-    top_titles = df_recomendacion['title'].iloc[top_indices].tolist()
+    top_titles = df_recommend['title'].iloc[top_indices].tolist()
 
     return top_titles
 
