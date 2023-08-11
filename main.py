@@ -110,7 +110,7 @@ cosine_sim = cosine_similarity(count_matrix, count_matrix)
 # Crear un diccionario que mapee los títulos de las películas con sus índices en el DataFrame
 indices = pd.Series(df_recommend.index, index=df_recommend['title']).drop_duplicates()
 
-
+@app.get('/recomendacion/')
 def recomendacion(titulo):
     # Obtener el índice de la película ingresada
     idx = indices[titulo]
